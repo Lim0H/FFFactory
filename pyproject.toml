@@ -6,8 +6,12 @@ authors = ["Lim0H <bikofusyba55@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.11.9"
 
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.10.0"
+flake8 = "^7.0.0"
 
 [build-system]
 requires = ["poetry-core"]

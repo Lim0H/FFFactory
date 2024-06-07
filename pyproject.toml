@@ -7,6 +7,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "3.11.9"
+bpy = "^4.1.0"
+numpy = "^1.26.4"
+numpy-stl = "^3.1.1"
+decorator = "^5.1.1"
+xtyping = "^0.8.2"
 
 
 [tool.poetry.group.dev.dependencies]

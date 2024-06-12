@@ -24,7 +24,7 @@ class WriterMeshBase(ABC):
     METHOD_READ_FILE: Optional[OpenBinaryModeWriting] = None
 
     def __init__(self, lst_dct_mesh: list[DctMesh]):
-        self.__lst_dct_mesh = lst_dct_mesh
+        self._lst_dct_mesh = lst_dct_mesh
 
     @abstractmethod
     def generate_content_to_write(self) -> Generator[DctMesh, None, None]:
@@ -67,7 +67,7 @@ class WriterAsciiStl(WriterMeshBase):
         return tweaked
 
     def generate_content_to_write(self) -> Generator[DctMesh, None, None]:
-        for content in self.__lst_dct_mesh:
+        for content in self._lst_dct_mesh:
             mesh = content["mesh"]
             filename = content["name"]
 
@@ -206,18 +206,18 @@ class LoaderMeshBase(ABC):
     FILE_TYPE: str = None
 
     def __init__(self, input_file: str) -> None:
-        self.__input_file = input_file
-        self.__buffered_file: Optional[BufferedReader] = None
+        self._input_file = input_file
+        self._buffered_file: Optional[BufferedReader] = None
 
     @property
     def input_file(self) -> str:
-        return self.__input_file
+        return self._input_file
 
     @property
     def buffered_file(self) -> BufferedReader:
-        if self.__buffered_file is None:
+        if self._buffered_file is None:
             raise ValueError("File not opened.")
-        return self.__buffered_file
+        return self._buffered_file
 
     @property
     def mesh_name(self) -> str:
@@ -244,11 +244,11 @@ class LoaderMeshBase(ABC):
             f = open(self.input_file, self.METHOD_READ_FILE)
             if not f.readable():
                 raise Exception("File is not readable.")
-            self.__buffered_file = f
+            self._buffered_file = f
         func(self, *args, **kwargs)
-        if self.__buffered_file is not None:
-            self.__buffered_file.close()
-        self.__buffered_file = None
+        if self._buffered_file is not None:
+            self._buffered_file.close()
+        self._buffered_file = None
 
 
 class Loader3mf(LoaderMeshBase):

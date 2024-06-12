@@ -1,4 +1,4 @@
-from .consts.string_utils_const import TO_REPLACE_LETTERS, TO_DELETE_LIST
+from ..auto_slicer.utils.consts.string_utils_const import TO_REPLACE_LETTERS, TO_DELETE_LIST
 
 
 def clean_name(name: str) -> str:

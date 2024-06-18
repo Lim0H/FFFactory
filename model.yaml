@@ -1,0 +1,18 @@
+render_image:
+    file_name: model.blend
+    image_name: image
+    angle_rotation_z: 60
+    max_rotation_z: 360
+    template_type: FDM
+    save_as: png
+    save_project: False
+    always_rerender: False
+    templates_number_img:
+      - black: 1
+        bronze: 1
+        gold: 1
+        red: 1
+        retrowave: 1
+        silver: 1
+        white: all
+

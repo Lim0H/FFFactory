@@ -7,13 +7,16 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "3.11.9"
-bpy = "^4.1.0"
 numpy = "^1.26.4"
 numpy-stl = "^3.1.1"
 decorator = "^5.1.1"
 xtyping = "^0.8.2"
 pymeshfix = "^0.16.3"
 click = "^8.1.7"
+bpy = "4.1.0"
+pyyaml = "^6.0.1"
+python-dotenv = "^1.0.1"
+click-option-group = "^0.5.6"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -21,6 +24,8 @@ mypy = "^1.10.0"
 flake8 = "^7.0.0"
 ipython = "^8.25.0"
 isort = "^5.13.2"
+fake-bpy-module = "^20240614"
+
 
 [build-system]
 requires = ["poetry-core"]

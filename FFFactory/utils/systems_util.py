@@ -1,5 +1,5 @@
 import os
-from FFFactory.own_types import BasicType
+from FFFactory.utils.own_types import BasicType
 
 
 def remove_file(file_path: str):
@@ -22,9 +22,11 @@ class ExistsDirType(ExistsPathType):
 
 class ExistsDirNameType(ExistsPathType):
     def _check_value_valid(self) -> bool:
-        return os.path.exists(
-            os.path.dirname(self.value)
-        )
+        return os.path.exists(self.value)
+
+    @property
+    def value(self) -> str:
+        return os.path.dirname(self._value)
 
 
 class ExistsFileType(ExistsPathType):
